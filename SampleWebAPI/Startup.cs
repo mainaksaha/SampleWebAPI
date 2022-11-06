@@ -30,7 +30,7 @@ namespace SampleWebAPI
             var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
             aiOptions.EnableAdaptiveSampling = false;
             services.AddApplicationInsightsTelemetry(aiOptions);
-            services.AddApplicationInsightsTelemetryProcessor<AdaptiveTelemetryProcessor>();
+            //services.AddApplicationInsightsTelemetryProcessor<AdaptiveTelemetryProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,8 +45,8 @@ namespace SampleWebAPI
 
             var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
             //builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 1, excludedTypes: "Exception");
-            builder.Use((next) => new AdaptiveTelemetryProcessor(next));
-            builder.UseSampling(10.0, excludedTypes:"Trace;Exception");
+            //builder.Use((next) => new AdaptiveTelemetryProcessor(next));
+            builder.UseSampling(20.0, excludedTypes:"Trace;Exception");
             
             builder.Build();
 
