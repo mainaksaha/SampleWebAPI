@@ -6,7 +6,6 @@ C:\Work\SampleWebAPI\SampleWebAPI\bin\Debug\netcoreapp3.1\SampleWebAPI.runtimeco
 C:\Work\SampleWebAPI\SampleWebAPI\bin\Debug\netcoreapp3.1\SampleWebAPI.runtimeconfig.dev.json
 C:\Work\SampleWebAPI\SampleWebAPI\bin\Debug\netcoreapp3.1\SampleWebAPI.dll
 C:\Work\SampleWebAPI\SampleWebAPI\bin\Debug\netcoreapp3.1\SampleWebAPI.pdb
-C:\Work\SampleWebAPI\SampleWebAPI\obj\Debug\netcoreapp3.1\SampleWebAPI.csproj.AssemblyReference.cache
 C:\Work\SampleWebAPI\SampleWebAPI\obj\Debug\netcoreapp3.1\SampleWebAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Work\SampleWebAPI\SampleWebAPI\obj\Debug\netcoreapp3.1\SampleWebAPI.AssemblyInfoInputs.cache
 C:\Work\SampleWebAPI\SampleWebAPI\obj\Debug\netcoreapp3.1\SampleWebAPI.AssemblyInfo.cs

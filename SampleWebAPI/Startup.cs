@@ -29,6 +29,7 @@ namespace SampleWebAPI
             var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
             aiOptions.EnableAdaptiveSampling = false;
             services.AddApplicationInsightsTelemetry(aiOptions);
+            services.AddApplicationInsightsTelemetryProcessor<AdaptiveTelemetryProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
