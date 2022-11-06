@@ -20,6 +20,9 @@ namespace SampleWebAPI
             if (item is ExceptionTelemetry)
                 return;
 
+            if (item is TraceTelemetry)
+                return;
+
             this.Next.Process(item);
         }
     }

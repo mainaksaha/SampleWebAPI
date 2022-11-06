@@ -34,4 +34,3 @@ C:\Work\SampleWebAPI\SampleWebAPI\bin\Debug\netcoreapp3.1\System.Text.Encodings.
 C:\Work\SampleWebAPI\SampleWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
 C:\Work\SampleWebAPI\SampleWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Work\SampleWebAPI\SampleWebAPI\obj\Debug\netcoreapp3.1\SampleWebAPI.csproj.CopyComplete
-C:\Work\SampleWebAPI\SampleWebAPI\obj\Debug\netcoreapp3.1\SampleWebAPI.csproj.AssemblyReference.cache
