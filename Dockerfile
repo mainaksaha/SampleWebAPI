@@ -1,5 +1,5 @@
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
 WORKDIR /source
 
 COPY . .
@@ -10,5 +10,5 @@ RUN dotnet publish "./SampleWebAPI/SampleWebAPI.csproj" -c release -o /app --no-
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal
 WORKDIR /app
 COPY --from=build /app ./
-EXPOSE 80
+EXPOSE 5000
 ENTRYPOINT ["dotnet", "SampleWebAPI.dll"]
