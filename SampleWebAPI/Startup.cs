@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 namespace SampleWebAPI
 {
@@ -45,6 +46,7 @@ namespace SampleWebAPI
             var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
             //builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 1, excludedTypes: "Exception");
             builder.UseSampling(10.0, excludedTypes:"Exception");
+            builder.Use((next) => new AdaptiveTelemetryProcessor(new SamplingTelemetryProcessor(null)));
             builder.Build();
 
             app.UseRouting();
