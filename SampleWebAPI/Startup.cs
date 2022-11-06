@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace SampleWebAPI
 {
@@ -25,15 +26,20 @@ namespace SampleWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TelemetryConfiguration configuration)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 1, excludedTypes: "Exception");
+            builder.Build();
 
             app.UseRouting();
 
@@ -44,5 +50,10 @@ namespace SampleWebAPI
                 endpoints.MapControllers();
             });
         }
+
+        //public void Configure(IApplicationBuilder app, IHostEnvironment env, TelemetryConfiguration configuration)
+        //{
+
+        //}
     }
 }
