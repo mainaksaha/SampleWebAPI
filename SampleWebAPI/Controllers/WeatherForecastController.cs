@@ -83,7 +83,7 @@ namespace SampleWebAPI.Controllers
         [HttpGet("api-identifier")]
         public string Identify()
         {
-            return "30 percent v1";
+            return "10 percent v1";
         }
     }
 }
