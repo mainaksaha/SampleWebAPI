@@ -48,7 +48,7 @@ namespace SampleWebAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogTrace("errortest trace");
-                _logger.LogError(ex.Message);
+                _logger.LogError(ex, ex.Message);
             }
             _logger.LogInformation("Weather is not good here");
             var rng = new Random();
