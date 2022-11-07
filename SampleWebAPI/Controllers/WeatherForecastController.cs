@@ -34,6 +34,7 @@ namespace SampleWebAPI.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+            _logger.LogTrace("forecast trace");
         }
 
         [HttpGet("errortest")]
@@ -46,11 +47,13 @@ namespace SampleWebAPI.Controllers
             }
             catch (Exception ex)
             {
-
+                _logger.LogTrace("errortest trace");
                 _logger.LogError(ex.Message);
             }
             _logger.LogInformation("Weather is not good here");
             var rng = new Random();
+            _logger.LogTrace("trace after handled exception");
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
@@ -63,10 +66,11 @@ namespace SampleWebAPI.Controllers
         [HttpGet("faulttest")]
         public IEnumerable<WeatherForecast> GetFault()
         {
-            _logger.LogInformation("Weather is terrible here");
+            _logger.LogTrace("faulttest message");
             int j = 0;
             int k = 10 / j;
             var rng = new Random();
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
@@ -74,6 +78,12 @@ namespace SampleWebAPI.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("api-identifier")]
+        public string Identify()
+        {
+            return "30 percent v1";
         }
     }
 }

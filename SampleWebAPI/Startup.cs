@@ -46,7 +46,7 @@ namespace SampleWebAPI
             var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
             //builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 1, excludedTypes: "Exception");
             //builder.Use((next) => new AdaptiveTelemetryProcessor(next));
-            builder.UseSampling(20.0, excludedTypes:"Trace;Exception");
+            builder.UseSampling(30.0, excludedTypes:"Request;Exception");
             
             builder.Build();
 
