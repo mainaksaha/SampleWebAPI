@@ -26,6 +26,7 @@ namespace SampleWebAPI.Controllers
         [HttpGet("forecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogTrace("forecast trace");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -34,7 +35,7 @@ namespace SampleWebAPI.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
-            _logger.LogTrace("forecast trace");
+            
         }
 
         [HttpGet("errortest")]
@@ -83,7 +84,7 @@ namespace SampleWebAPI.Controllers
         [HttpGet("api-identifier")]
         public string Identify()
         {
-            return "30% sampling v2. Docker build version - 25.";
+            return "Adaptive Sampling - v1.0";
         }
     }
 }
