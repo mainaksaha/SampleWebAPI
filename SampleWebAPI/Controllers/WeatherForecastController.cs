@@ -26,7 +26,7 @@ namespace SampleWebAPI.Controllers
         [HttpGet("forecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.LogTrace("forecast trace");
+            _logger.LogError("forecast trace");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -48,12 +48,12 @@ namespace SampleWebAPI.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogTrace("errortest trace");
+                _logger.LogError("errortest trace");
                 _logger.LogError(ex, ex.Message);
             }
-            _logger.LogInformation("Weather is not good here");
+            _logger.LogError("Weather is not good here");
             var rng = new Random();
-            _logger.LogTrace("trace after handled exception");
+            _logger.LogError("trace after handled exception");
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -67,7 +67,7 @@ namespace SampleWebAPI.Controllers
         [HttpGet("faulttest")]
         public IEnumerable<WeatherForecast> GetFault()
         {
-            _logger.LogTrace("faulttest message");
+            _logger.LogError("faulttest message");
             int j = 0;
             int k = 10 / j;
             var rng = new Random();
