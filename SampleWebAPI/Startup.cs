@@ -29,7 +29,7 @@ namespace SampleWebAPI
         {
             services.AddControllers();
             var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-            aiOptions.EnableAdaptiveSampling = true;
+            aiOptions.EnableAdaptiveSampling = false;
             services.AddApplicationInsightsTelemetry(aiOptions);
             //services.AddApplicationInsightsTelemetryProcessor<AdaptiveTelemetryProcessor>();
         }
@@ -42,27 +42,27 @@ namespace SampleWebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+            //var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
 
-            SamplingPercentageEstimatorSettings samplingPercentageEstimatorSettings = new SamplingPercentageEstimatorSettings();
-            //samplingPercentageEstimatorSettings.EvaluationInterval = new TimeSpan(0, 0, 15);
-            samplingPercentageEstimatorSettings.InitialSamplingPercentage = 100;
-            samplingPercentageEstimatorSettings.MovingAverageRatio = 0.90; //Highly reactive to sudden changes
-            //samplingPercentageEstimatorSettings.SamplingPercentageIncreaseTimeout = new TimeSpan(0,0,15);
-            samplingPercentageEstimatorSettings.EvaluationInterval = new TimeSpan(0, 0, 10); //shorten the interval to catch the certain burst
-            samplingPercentageEstimatorSettings.MaxTelemetryItemsPerSecond = 2;
-            AdaptiveSamplingPercentageEvaluatedCallback adaptiveSamplingPercentageEvaluatedCallback = AdaptiveTelCallback;
+            //SamplingPercentageEstimatorSettings samplingPercentageEstimatorSettings = new SamplingPercentageEstimatorSettings();
+            ////samplingPercentageEstimatorSettings.EvaluationInterval = new TimeSpan(0, 0, 15);
+            //samplingPercentageEstimatorSettings.InitialSamplingPercentage = 100;
+            //samplingPercentageEstimatorSettings.MovingAverageRatio = 0.90; //Highly reactive to sudden changes
+            ////samplingPercentageEstimatorSettings.SamplingPercentageIncreaseTimeout = new TimeSpan(0,0,15);
+            //samplingPercentageEstimatorSettings.EvaluationInterval = new TimeSpan(0, 0, 10); //shorten the interval to catch the certain burst
+            //samplingPercentageEstimatorSettings.MaxTelemetryItemsPerSecond = 2;
+            //AdaptiveSamplingPercentageEvaluatedCallback adaptiveSamplingPercentageEvaluatedCallback = AdaptiveTelCallback;
 
             //    var tpBuilder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
             //    //tpBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 1, excludedTypes: "Exception");
             //    tpBuilder.UseAdaptiveSampling(samplingPercentageEstimatorSettings, adaptiveSamplingPercentageEvaluatedCallback, excludedTypes: "Exception", includedTypes: "Request;Trace");
             //    tpBuilder.Build();
-            var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-            builder.UseAdaptiveSampling(samplingPercentageEstimatorSettings, adaptiveSamplingPercentageEvaluatedCallback, excludedTypes: "Exception");
+            //var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            //builder.UseAdaptiveSampling(samplingPercentageEstimatorSettings, adaptiveSamplingPercentageEvaluatedCallback, excludedTypes: "Exception");
             //builder.Use((next) => new AdaptiveTelemetryProcessor(next));
             //builder.UseSampling(30.0, excludedTypes:"Request;Exception");
             
-            builder.Build();
+            //builder.Build();
 
             app.UseRouting();
 
