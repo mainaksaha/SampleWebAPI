@@ -83,7 +83,7 @@ namespace SampleWebAPI.Controllers
         [HttpGet("api-identifier")]
         public string Identify()
         {
-            return "no sampling v1";
+            return "no sampling v2. Docker build version - 23.";
         }
     }
 }
