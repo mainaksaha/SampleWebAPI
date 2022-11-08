@@ -42,7 +42,7 @@ namespace SampleWebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            //var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+            var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
 
             //SamplingPercentageEstimatorSettings samplingPercentageEstimatorSettings = new SamplingPercentageEstimatorSettings();
             ////samplingPercentageEstimatorSettings.EvaluationInterval = new TimeSpan(0, 0, 15);
@@ -57,12 +57,12 @@ namespace SampleWebAPI
             //    //tpBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 1, excludedTypes: "Exception");
             //    tpBuilder.UseAdaptiveSampling(samplingPercentageEstimatorSettings, adaptiveSamplingPercentageEvaluatedCallback, excludedTypes: "Exception", includedTypes: "Request;Trace");
             //    tpBuilder.Build();
-            //var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
             //builder.UseAdaptiveSampling(samplingPercentageEstimatorSettings, adaptiveSamplingPercentageEvaluatedCallback, excludedTypes: "Exception");
             //builder.Use((next) => new AdaptiveTelemetryProcessor(next));
-            //builder.UseSampling(30.0, excludedTypes:"Request;Exception");
+            builder.UseSampling(30.0, excludedTypes:"Request;Exception");
             
-            //builder.Build();
+            builder.Build();
 
             app.UseRouting();
 
