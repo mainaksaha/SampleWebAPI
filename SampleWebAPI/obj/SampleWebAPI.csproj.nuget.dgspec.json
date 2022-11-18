@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj": {}
+    "C:\\code\\SampleWebAPIAppInsight_M_REPO_Latest\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Work\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj": {
+    "C:\\code\\SampleWebAPIAppInsight_M_REPO_Latest\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj",
+        "projectUniqueName": "C:\\code\\SampleWebAPIAppInsight_M_REPO_Latest\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj",
         "projectName": "SampleWebAPI",
-        "projectPath": "C:\\Work\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj",
-        "packagesPath": "C:\\Users\\saha_\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\SampleWebAPI\\SampleWebAPI\\obj\\",
+        "projectPath": "C:\\code\\SampleWebAPIAppInsight_M_REPO_Latest\\SampleWebAPI\\SampleWebAPI\\SampleWebAPI.csproj",
+        "packagesPath": "C:\\Users\\mainaksaha\\.nuget\\packages\\",
+        "outputPath": "C:\\code\\SampleWebAPIAppInsight_M_REPO_Latest\\SampleWebAPI\\SampleWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\saha_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mainaksaha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,7 +42,7 @@
           "dependencies": {
             "Microsoft.ApplicationInsights.AspNetCore": {
               "target": "Package",
-              "version": "[2.21.0, )"
+              "version": "[2.12.2, )"
             }
           },
           "imports": [
@@ -51,10 +51,29 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.30, 3.1.30]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -63,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

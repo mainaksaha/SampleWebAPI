@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights;
 
 namespace SampleWebAPI
 {
@@ -83,5 +85,16 @@ namespace SampleWebAPI
         //{
 
         //}
+
+        private void SendTelemetry()
+        {
+            TelemetryClient telemetry = new TelemetryClient();
+            var sample = new MetricTelemetry();
+            sample.Name = "testTelemetry";
+            sample.Sum = 42.3;
+            telemetry.TrackMetric(sample);
+
+            var metric = telemetry.GetMetric("metric-1");
+        }
     }
 }
